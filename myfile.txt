@@ -1,0 +1,238 @@
+import React from 'react';
+
+import ReactDOM from 'react-dom';
+
+ 
+
+export default class CustomTextInput extends React.Component {
+
+    constructor(props) {
+
+      super(props);
+
+    
+
+      this.textInput = React.createRef();
+
+      this.focusTextInput = this.focusTextInput.bind(this);
+
+    }
+
+ 
+
+    focusTextInput() {
+
+   
+
+    this.textInput.current.focus();
+
+      //ReactDOM.findDOMNode(this.textInput.current).focus();
+
+      //document.getElementById("abc").focus()
+
+    }
+
+ 
+
+    render() {
+
+    
+
+      return (
+
+        <div>
+
+          <input type="text" id="abc" ref={this.textInput} />
+
+         
+
+  
+
+          <input
+
+            type="button"
+
+            value="Focus the text input"
+
+            onClick={this.focusTextInput}
+
+          />
+
+        </div>
+
+      );
+
+    }
+
+  }
+
+ 
+
+ 
+
+import React from 'react';
+
+import ReactDOM from 'react-dom';
+
+import CustomTextInput from './FocusAnInput';
+
+ 
+
+export default class ABC extends React.Component {
+
+    constructor(props) {
+
+      super(props);
+
+    
+
+      
+
+    }
+
+ 
+
+      
+
+    render() {
+
+     
+
+      return (
+
+        <div>
+
+          <CustomTextInput/>
+
+          <CustomTextInput/>
+
+          <CustomTextInput/>
+
+         
+
+        </div>
+
+      );
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React from 'react';
+
+import ReactDOM from 'react-dom';
+
+  
+
+export default class Test extends React.Component {
+
+    constructor(props)
+
+    {
+
+        super(props);
+
+        this.state = { hello : " in React World!" };
+
+    }
+
+  
+
+    componentWillMount()
+
+    {
+
+        console.log("componentWillMount()");
+
+    }
+
+  
+
+    componentDidMount()
+
+    {
+
+        console.log("componentDidMount()");
+
+    }
+
+  
+
+    changeState()
+
+    {
+
+        this.setState({ hello : " in the Session of Component's Lifecycle" });
+
+    }
+
+  
+
+    render()
+
+    {
+
+        return (
+
+            <div>
+
+            <h1>Welcome{ this.state.hello }</h1>
+
+            <h2>
+
+             <a onClick={this.changeState.bind(this)}>Press Here!</a>
+
+            </h2>
+
+            </div>);
+
+    }
+
+  
+
+    shouldComponentUpdate(nextProps, nextState)
+
+    {
+
+        console.log("shouldComponentUpdate()");
+
+        return false;
+
+    }
+
+  
+
+    componentWillUpdate()
+
+    {
+
+        console.log("componentWillUpdate()");
+
+    }
+
+  
+
+    componentDidUpdate()
+
+    {
+
+        console.log("componentDidUpdate()");
+
+    }
+
+}
+
+ 
